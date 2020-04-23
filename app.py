@@ -4,8 +4,8 @@ from flask_restful import Resource, Api
 from playlist_utils import (
   get_desired_artist,
   get_artist_info,
-  add_top_songs_to_list,
-  add_related_songs_to_list,
+  add_top_tracks_to_list,
+  add_related_tracks_to_list,
   create_playlist,
   add_tracks_to_playlist
 )
@@ -22,20 +22,16 @@ class Playlist(Resource):
 
     artist_name, artist_uri, artist_image_url = get_artist_info(desired_artist_results)
 
-    track_list = add_top_songs_to_list(artist_uri)
-    track_list = add_related_songs_to_list(track_list, artist_uri)
+    track_list = add_top_tracks_to_list(artist_uri)
+    track_list = add_related_tracks_to_list(track_list, artist_uri)
+    playlist_name, playlist, playlist_id = create_playlist(artist_name)
 
-    # playlist_name, playlist, playlist_id = create_playlist(artist_name)
-
-    # add_tracks_to_playlist(username, playlist_id, track_list)
+    add_tracks_to_playlist(playlist_id, track_list)
 
     return { 
-      # 'related_artists' : related_artists,
-      # 'desired_artist_results' : desired_artist_results,
-      # 'desired_artist_entry': desired_artist_entry,
-      'artist_name': artist_name,
-      'artist_uri': artist_uri,
-      'artist_image_url': artist_image_url,
+      # 'artist_name': artist_name,
+      # 'artist_uri': artist_uri,
+      # 'artist_image_url': artist_image_url,
       'track_list' : track_list
     }, 200
     
