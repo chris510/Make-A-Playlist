@@ -38,46 +38,18 @@
   
       .header-2 {
         color: $white-primary-1;
-        // width: 79%;
         font-size: $header-font-size-secondary;
       }
 
       .header-3 {
         color: $white-primary-1;
-        // width: 58%;
         font-size: $header-font-size-secondary;
       }
 
       .header-4 {
         color: $white-primary-1;
-        // width: 39%;
         font-size: $header-font-size-secondary;
       }
-
-      button {
-        // position: absolute;
-        background: linear-gradient(to right, rgba(187, 41, 78, 1), rgba(133, 33, 81, 1));
-        // background-color: linear-gradient(to right, #BB294E, #852151);
-        font-size: $font-size-primary;
-        color: $white-primary-1;
-        border: double 2px transparent;
-        background-origin: border-box;
-        background-clip: content-box, border-box;
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin-top: 10px;
-        margin-left: 30px;
-  
-        &:hover {
-          cursor: pointer;
-        }
-
-        &:focus {
-          outline: none;
-        }
-      } 
     }
   }
 }
-  // .main-section {

@@ -2,7 +2,7 @@ import React from 'react';
 import './home-page.styles.scss';
 
 import Nav from '../../components/nav/nav.component';
-
+import SearchBar from '../../components/search-bar/search-bar.component';
 const HomePage = () => {
   return (
     <div className="home">
@@ -13,9 +13,7 @@ const HomePage = () => {
           <h2 className="header-2">Discover and share</h2>
           <h3 className="header-3">your perfect</h3>
           <h4 className="header-4">sound.</h4>
-          <div className="button">
-            <button className="search-btn">&#9658;</button>
-          </div>
+          <SearchBar/>
         </div>
       </section>
     </div>
