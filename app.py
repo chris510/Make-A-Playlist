@@ -17,8 +17,8 @@ class Playlist(Resource):
   def post(self):
     desired_artist_results = get_desired_artist(request.get_json())
 
-    if len(desired_artist_results['artists']['items']) == 0:
-      return {'message': 'Cannot find artist!'}
+    if len(desired_artist_results["artists"]["items"]) == 0:
+      return {"message": "Cannot find artist!"}
 
     artist_name, artist_uri, artist_image_url = get_artist_info(desired_artist_results)
 
@@ -34,7 +34,12 @@ class Playlist(Resource):
       # 'artist_image_url': artist_image_url,
       'track_list' : track_list
     }, 200
+
+class Message(Resource):
+  def get(self):
+    return {"message": "This is the messages python class!"}
     
-api.add_resource(Playlist, '/playlist')
+api.add_resource(Playlist, "/playlist")
+api.add_resource(Message, "/message")
 
 app.run(port=5000, debug=True)

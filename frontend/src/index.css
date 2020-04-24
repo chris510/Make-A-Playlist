@@ -1,6 +1,13 @@
+@import './stylesheets/main.scss';
+
 * {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #D9DAD9;
 }
 
 body {

@@ -1,9 +1,12 @@
+@import '../../stylesheets/main.scss';
+
 .home {
   display: flex;
   height: 100vh;
   background-color: #010206;
   
   .main-section {
+    position: relative;
     min-width: 100%;
     // background-image: linear-gradient(to left top, rgba(1, 2, 6, 1) ,rgba(12, 34, 101, .8)), url(../../images/neon-background.jpeg);
     background-image: linear-gradient(to left top, rgba(12, 34, 101, 0.05) 5%, rgba(1, 2, 6, 1) 90%), url(../../images/neon-background.jpeg);
@@ -17,42 +20,61 @@
 
     .headers {
       width: 60%;
-      height: 25%;
+      height: 45%;
+      margin-left: 200px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      align-items: flex-start;
       position: relative;
 
+      > * {
+        padding: 2.5px;
+      }
+
       .header-1 {
-        color: white;
-        font-size: 62px;
+        color: $white-primary-1;
+        font-size: $header-font-size-primary;
       }
   
       .header-2 {
-        color: white;
-        font-size: 48px;
+        color: $white-primary-1;
+        // width: 79%;
+        font-size: $header-font-size-secondary;
       }
 
       .header-3 {
-        color: white;
-        font-size: 48px;
+        color: $white-primary-1;
+        // width: 58%;
+        font-size: $header-font-size-secondary;
+      }
+
+      .header-4 {
+        color: $white-primary-1;
+        // width: 39%;
+        font-size: $header-font-size-secondary;
       }
 
       button {
         // position: absolute;
         background: linear-gradient(to right, rgba(187, 41, 78, 1), rgba(133, 33, 81, 1));
         // background-color: linear-gradient(to right, #BB294E, #852151);
-        font-size: 18px;
-        color: white;
+        font-size: $font-size-primary;
+        color: $white-primary-1;
         border: double 2px transparent;
-        border-radius: 16px;
         background-origin: border-box;
         background-clip: content-box, border-box;
-        width: 175px;
-        height: 55px;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 30px;
   
         &:hover {
           cursor: pointer;
+        }
+
+        &:focus {
+          outline: none;
         }
       } 
     }

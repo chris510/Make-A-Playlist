@@ -5,12 +5,19 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 from random import randint, sample
 
-SPOTIPY_CLIENT_ID = "YOUR SPOTIPY_CLIENT_ID HERE"
-SPOTIPY_CLIENT_SECRET = "YOUR SPOTIPY_CLIENT_SECRET HERE"
-SPOTIPY_REDIRECT_URI = "YOUR SPOTIPY_REDIRECT_URI HERE"
+SPOTIPY_CLIENT_ID = "18a0a5c51f9b44709bfb88140ccd7071"
+SPOTIPY_CLIENT_SECRET = "4a370de8f3b24225a4e310006bec16c7"
+SPOTIPY_REDIRECT_URI = "https://www.chris-trinh.com/"
 
-username = 'YOUR USERNAME HERE'
+username = "1259017121"
 scope = "playlist-modify-public"
+
+# SPOTIPY_CLIENT_ID = "YOUR SPOTIPY_CLIENT_ID HERE"
+# SPOTIPY_CLIENT_SECRET = "YOUR SPOTIPY_CLIENT_SECRET HERE"
+# SPOTIPY_REDIRECT_URI = "YOUR SPOTIPY_REDIRECT_URI HERE"
+
+# username = 'YOUR USERNAME HERE'
+# scope = "playlist-modify-public"
 
 client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
@@ -19,8 +26,8 @@ token = util.prompt_for_user_token(username, scope, SPOTIPY_CLIENT_ID, SPOTIPY_C
 sp = spotipy.Spotify(auth=token)
 
 def get_desired_artist(data):
-  desired_artist = data['desired_artist']
-  desired_artist_results = sp.search(q='artist:' + desired_artist, type='artist')
+  desired_artist = data["desired_artist"]
+  desired_artist_results = sp.search(q="artist:" + desired_artist, type="artist")
   return desired_artist_results
 
 def get_artist_info(desired_artist_results):
