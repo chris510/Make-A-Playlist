@@ -1,7 +1,8 @@
 .App {
-  text-align: center;
-  /* background-color: #010206; */
-  min-height: 100vh;
+  position: relative;
+  min-width: 100%;
+  background-image: linear-gradient(to left top, rgba(12, 34, 101, 0.05) 5%, rgba(1, 2, 6, 1) 90%), url('./images/neon-background.jpeg');
+  background-size: 100% 100%;
 }
 
 .App-logo {
