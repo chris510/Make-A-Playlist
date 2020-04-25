@@ -11,12 +11,25 @@
   }
 
   .content {
-    width: 40%;
+    width: 85%;
     height: 45%;
     margin-left: $content-margin-left-1;
+    display: flex;
+    flex-direction: column;
 
-    > * {
-      padding: 2.5px;
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+
+      .track-box {
+        margin-top: 50px;
+      }
+
+      .track-playlist {
+        border: 1px solid black;
+        width: 40%;
+        height: 350px;
+      }
     }
   }
 }

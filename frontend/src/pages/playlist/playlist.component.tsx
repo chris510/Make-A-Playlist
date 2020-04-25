@@ -13,7 +13,9 @@ const Playlist = () => {
         <h1>APP NAME HERE</h1>
         <div className="content-inner">
           <SearchBar/>
-          <iframe src={playListIframe} width="100%" height="300" title="Your Playlist"></iframe>
+          <div className="track-box">
+            <iframe className="track-playlist" src={playListIframe} width="100%" height="300" title="Your Playlist"></iframe>
+          </div>
         </div>
       </div>
     </div>
