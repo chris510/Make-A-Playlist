@@ -1,14 +1,14 @@
 @import '../../stylesheets/main.scss';
 
 .about {
+  @include content-align;
   height: 100vh;
   color: $white-primary-1;
-  position: relative;
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+
+  h1 {
+    font-size: $header-font-size-secondary;
+    color: $white-primary-1;
+  }
 
   .content {
     width: 40%;

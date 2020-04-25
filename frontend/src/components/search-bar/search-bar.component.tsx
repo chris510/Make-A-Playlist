@@ -4,13 +4,12 @@ import './search-bar.styles.scss';
 const SearchBar = () => {
   return (
     <div className="search">
-      <button className="search-btn">&#9658;</button>
       <input 
         className="search-bar"
         placeholder="Ex: Bruno Mars"
         required
-      >
-      </input>
+      />
+      <button className="search-btn">&#9658;</button>
     </div>
   )
 }
