@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './search-bar.styles.scss';
 
+import { TrackContext } from '../../providers/tracks.provider';
+
 const SearchBar = () => {
+  const { playListIframe, getPlayListIframe } = useContext(TrackContext);
+  const [artistName, setArtistName] = useState('Frank Ocean');
+
+  // useEffect(() => {
+  //   getplayListIframe(artistName);
+  // }, [])
+
   return (
     <div className="search">
       <input 
         className="search-bar"
         placeholder="Ex: Bruno Mars"
+        // value={artistName}
         required
       />
       <button className="search-btn">&#9658;</button>

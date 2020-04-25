@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import TrackProvider from './providers/tracks.provider';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <TrackProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </TrackProvider>,
   document.getElementById('root')
 );

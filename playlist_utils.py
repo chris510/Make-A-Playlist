@@ -69,3 +69,7 @@ def create_playlist(artist_name):
 
 def add_tracks_to_playlist(playlist_id, track_list):
   sp.user_playlist_add_tracks(username, playlist_id, track_list)
+
+def create_playlist_iframe(playlist_id):
+  playlist_iframe_href = "https://open.spotify.com/embed?uri=spotify:user:" + username + ":playlist:" + playlist_id + "&theme=white"
+  return playlist_iframe_href

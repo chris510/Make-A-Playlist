@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 
 from playlist_utils import (
@@ -7,7 +7,8 @@ from playlist_utils import (
   add_top_tracks_to_list,
   add_related_tracks_to_list,
   create_playlist,
-  add_tracks_to_playlist
+  add_tracks_to_playlist,
+  create_playlist_iframe
 )
 
 app = Flask(__name__)
@@ -27,12 +28,10 @@ class Playlist(Resource):
     playlist_name, playlist, playlist_id = create_playlist(artist_name)
 
     add_tracks_to_playlist(playlist_id, track_list)
-
+    playlist_iframe_href = create_playlist_iframe(playlist_id)
     return { 
-      # 'artist_name': artist_name,
-      # 'artist_uri': artist_uri,
-      # 'artist_image_url': artist_image_url,
-      'track_list' : track_list
+      'track_list': track_list,
+      'playlist_iframe_href': playlist_iframe_href
     }, 200
 
 class Message(Resource):
