@@ -3,10 +3,10 @@ import spotipy
 import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
 
-from random import randint, sample
+from random import sample, shuffle
 
 SPOTIPY_CLIENT_ID = "18a0a5c51f9b44709bfb88140ccd7071"
-SPOTIPY_CLIENT_SECRET = "4a370de8f3b24225a4e310006bec16c7"
+SPOTIPY_CLIENT_SECRET = "d1c60df39a17418088946fb8cfdb2dbc"
 SPOTIPY_REDIRECT_URI = "https://www.chris-trinh.com/"
 
 username = "1259017121"
@@ -41,7 +41,7 @@ def get_artist_info(desired_artist_results):
 def add_top_tracks_to_list(artist_uri):
   artist_top_tracks = sp.artist_top_tracks(artist_uri)
   track_list = []
-  random_top_tracks = sample(artist_top_tracks["tracks"], 5)
+  random_top_tracks = sample(artist_top_tracks["tracks"], 10)
 
   for track in random_top_tracks:
     track_list.append(track["id"])
@@ -54,7 +54,7 @@ def add_related_tracks_to_list(track_list, artist_uri):
     if related_artist_count < 10:
       related_artist_uri = artist["uri"]
       related_artist_top_tracks = sp.artist_top_tracks(related_artist_uri)
-      related_artist_random_top_tracks = sample(related_artist_top_tracks["tracks"], 4)
+      related_artist_random_top_tracks = sample(related_artist_top_tracks["tracks"], 3)
       for track in related_artist_random_top_tracks:
         track_list.append(track["id"])
       related_artist_count += 1
@@ -69,6 +69,10 @@ def create_playlist(artist_name):
 
 def add_tracks_to_playlist(playlist_id, track_list):
   sp.user_playlist_add_tracks(username, playlist_id, track_list)
+
+def randomize_track_list_order(track_list):
+  list_len = len(track_list)
+  return sample(track_list, list_len)
 
 def create_playlist_iframe(playlist_id):
   playlist_iframe_href = "https://open.spotify.com/embed?uri=spotify:user:" + username + ":playlist:" + playlist_id + "&theme=white"
