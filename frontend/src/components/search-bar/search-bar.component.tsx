@@ -4,11 +4,15 @@ import './search-bar.styles.scss';
 import { TrackContext } from '../../providers/tracks.provider';
 
 const SearchBar = () => {
-  const { playListIframe, getPlayListIframe } = useContext(TrackContext);
+  const { playListIframe, createPlayListIframe } = useContext(TrackContext);
   const [artistName, setArtistName] = useState('Frank Ocean');
 
+  const handleClickCreatePlaylist = (event: any) => {
+    event.preventDefault()
+    createPlayListIframe(artistName);
+  }
   // useEffect(() => {
-  //   getplayListIframe(artistName);
+  //   createplayListIframe(artistName);
   // }, [])
 
   return (
@@ -19,7 +23,7 @@ const SearchBar = () => {
         // value={artistName}
         required
       />
-      <button className="search-btn">&#9658;</button>
+      <button className="search-btn" onClick={handleClickCreatePlaylist}>&#9658;</button>
     </div>
   )
 }

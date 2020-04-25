@@ -2,13 +2,15 @@ import React, { createContext , useState, useEffect, useCallback } from 'react';
 
 export const TrackContext = createContext({
   playListIframe: '',
-  getPlayListIframe: () => {}
+  playListMade: false,
+  createPlayListIframe: (artistName) => {}
 });
 
 const TrackProvider = ({ children }) => {
   const [playListIframe, setPlayListIframe] = useState('');
+  const [playListMade, setplayListMade] = useState(false);
 
-  const getPlayListIframe = async (artistName) => {
+  const createPlayListIframe = async (artistName) => {
     const data = {"desired_artist": artistName}
     const response = await fetch("/playlist", {
       method: "POST",
@@ -32,7 +34,8 @@ const TrackProvider = ({ children }) => {
     <TrackContext.Provider
       value={{
         playListIframe,
-        getPlayListIframe
+        playListMade,
+        createPlayListIframe
       }}
     >
       {children}
