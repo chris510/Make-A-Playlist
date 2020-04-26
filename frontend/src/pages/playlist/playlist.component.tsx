@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import './playlist.styles.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
+
 import SearchBar from '../../components/search-bar/search-bar.component';
 import { TrackContext } from '../../providers/tracks.provider';
 
@@ -10,7 +13,10 @@ const Playlist = () => {
   return (
     <div className="playlist">
       <div className="content">
-        <h1>APP NAME HERE</h1>
+        <div className="header">
+          <h1>Search Artist</h1>
+          <FontAwesomeIcon icon={faComment} className="icon"/>
+        </div>
         <div className="content-inner">
           <SearchBar/>
           <div className="track-box">

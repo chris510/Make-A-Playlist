@@ -5,19 +5,26 @@ import { TrackContext } from '../../providers/tracks.provider';
 
 const SearchBar = () => {
   const { createPlayListIframe } = useContext(TrackContext);
-  const [artistName, setArtistName] = useState('Frank Ocean');
+  const [artistName, setArtistName] = useState('');
 
-  const handleClickCreatePlaylist = (event: any) => {
-    event.preventDefault()
+  const handleClickCreatePlaylist = (event: React.FormEvent) => {
+    event.preventDefault();
     createPlayListIframe(artistName);
+  }
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setArtistName(value);
   }
 
   return (
     <div className="search">
       <input 
         className="search-bar"
+        type="text"
         placeholder="Ex: Bruno Mars"
-        // value={artistName}
+        value={artistName}
+        onChange={handleSearchChange}
         required
       />
       <button className="search-btn" onClick={handleClickCreatePlaylist}>&#9658;</button>

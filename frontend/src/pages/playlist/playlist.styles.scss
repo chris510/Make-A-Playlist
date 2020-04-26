@@ -5,10 +5,28 @@
   height: 100vh;
   color: $white-primary-1;
 
-  h1 {
-    font-size: $header-font-size-secondary;
-    color: $white-primary-1;
+  .header {
+    display: flex;
+
+    h1 {
+      font-size: $header-font-size-secondary;
+      color: $white-primary-1;
+    }
+  
+    .icon {
+      width: 60px;
+      height: 60px;
+      color: lightgreen;
+      stroke-width: 5px;
+      z-index: 1000;
+      margin-left: 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
+
 
   .content {
     width: 85%;
