@@ -2,12 +2,24 @@ import React, { createContext, useState } from 'react';
 
 export const MessageContext = createContext({
   phoneNumber: "",
+  spinnerLoading: false,
+  showSpinner: () => {},
+  hideSpinner: () => {},
   changePhoneNumber: (number) => {},
   sendPlaylistMessage: (playlistName, playlistLink) => {}
 })
 
 const MessageProvider = ({ children }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [spinnerLoading, setSpinnerLoading] = useState(false);
+
+  const showSpinner = () => {
+    setSpinnerLoading(true);
+  }
+
+  const hideSpinner = () => {
+    setSpinnerLoading(false);
+  }
 
   const changePhoneNumber = (number) => {
     setPhoneNumber(number);
@@ -35,7 +47,10 @@ const MessageProvider = ({ children }) => {
     if (response.ok) {
       response.json().then(data => {
         console.log(data);
-        console.log('Message Sent!');
+        setTimeout(() => {
+          hideSpinner();
+          alert('Message Sent!')
+        }, 2000)
       })
     } else {
       console.log('ERROR HAS OCCURED');
@@ -46,6 +61,9 @@ const MessageProvider = ({ children }) => {
     <MessageContext.Provider
       value={{
         phoneNumber,
+        spinnerLoading,
+        showSpinner,
+        hideSpinner,
         changePhoneNumber,
         sendPlaylistMessage
       }}

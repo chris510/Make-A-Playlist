@@ -10,6 +10,27 @@
     background: rgba(0,0,0,0.75);
     z-index: 50;
   }
+
+  .spinner-box {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    margin: 5% auto;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    z-index: 100;
+
+    .spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
   
   .alert-box {
     display: flex;
@@ -25,6 +46,14 @@
     background: $white-primary-1;
     color: black;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+    .spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
   }
   
   .alert-box-actions {

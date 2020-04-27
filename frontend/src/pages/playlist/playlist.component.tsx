@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './playlist.styles.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +8,6 @@ import SearchBar from '../../components/search-bar/search-bar.component';
 import Spinner from '../../components/spinner/spinner.component';
 import PhoneInput from '../../components/phone-input/phone-input.component';
 import { TrackContext } from '../../providers/tracks.provider';
-import { MessageContext } from '../../providers/message.provider';
 import { ModalContext } from '../../providers/modal.provider';
 
 const Playlist = () => {
