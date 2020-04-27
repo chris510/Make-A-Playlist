@@ -9,7 +9,7 @@ import Spinner from '../../components/spinner/spinner.component';
 
 const PhoneInput = () => {
   const { modal, hideModal } = useContext(ModalContext);
-  const { phoneNumber, sendPlaylistMessage, changePhoneNumber, spinnerLoading, showSpinner, hideSpinner } = useContext(MessageContext);
+  const { phoneNumber, sendPlaylistMessage, changePhoneNumber, spinnerLoading, showSpinner } = useContext(MessageContext);
   const { playlistName, playlistLink } = useContext(TrackContext);
 
 
