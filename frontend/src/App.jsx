@@ -4,13 +4,13 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import './App.css';
 
 import { play, exit } from './transitions/timeline';
-
 import Nav from './components/nav/nav.component';
 import Background from './components/background/background.component';
 import Home from './pages/home/home.component';
 import About from './pages/about/about.component';
 import Contact from './pages/contact/contact.component';
 import PlaylistPage from './pages/playlist/playlist.component';
+
 
 function App() {
   return (
