@@ -2,12 +2,14 @@ import React, { createContext , useState} from 'react';
 
 export const TrackContext = createContext({
   playListIframe: '',
+  trackArtistNames: [],
   playListMade: false,
   createPlayListIframe: (artistName) => {}
 });
 
 const TrackProvider = ({ children }) => {
   const [playListIframe, setPlayListIframe] = useState('');
+  const [trackArtistNames, setTrackArtistNames] = useState([]);
   const [playListMade, setplayListMade] = useState(false);
 
   const createPlayListIframe = async (artistName) => {
@@ -24,6 +26,7 @@ const TrackProvider = ({ children }) => {
       response.json().then(data => {
         console.log(data);
         setPlayListIframe(data.playlist_iframe_href);
+        setTrackArtistNames(data.track_artist_list);
         setplayListMade(true);
       })
     } else {
@@ -35,6 +38,7 @@ const TrackProvider = ({ children }) => {
     <TrackContext.Provider
       value={{
         playListIframe,
+        trackArtistNames,
         playListMade,
         createPlayListIframe
       }}
