@@ -1,14 +1,17 @@
 import React, { createContext } from 'react';
 
 export const MessageContext = createContext({
-  sendPlaylistMessage: (trackArtistNames) => {}
+  sendPlaylistMessage: (playlistName, playlistLink) => {}
 })
 
 const MessageProvider = ({ children }) => {
 
-  const sendPlaylistMessage = async (trackArtistNames) => {
-    const data = { "track_artist_list": trackArtistNames };
-    console.log(trackArtistNames)
+  const sendPlaylistMessage = async (playlistName, playlistLink) => {
+    const data = { 
+      "playlist_name": playlistName,
+      "playlist_link": playlistLink
+    };
+
     const response = await fetch("/message", {
       method: "POST",
       headers: {

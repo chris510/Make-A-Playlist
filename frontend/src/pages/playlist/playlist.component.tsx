@@ -9,13 +9,13 @@ import { TrackContext } from '../../providers/tracks.provider';
 import { MessageContext } from '../../providers/message.provider';
 
 const Playlist = () => {
-  const { playListIframe, playListMade, trackArtistNames } = useContext(TrackContext);
+  const { playlistIframe, playlistMade, playlistLink, playlistName } = useContext(TrackContext);
   const { sendPlaylistMessage } = useContext(MessageContext);
 
   const onClickMessage = (event: React.FormEvent) => {
     event.preventDefault();
     console.log('clicked!')
-    sendPlaylistMessage(trackArtistNames);
+    sendPlaylistMessage(playlistName, playlistLink);
   }
 
   return (
@@ -26,14 +26,14 @@ const Playlist = () => {
           <FontAwesomeIcon 
             onClick={onClickMessage}
             icon={faComment} 
-            className={playListMade ? 'icon' : 'icon hidden'}
+            className={playlistMade ? 'icon' : 'icon hidden'}
             />
         </div>
         <div className="content-inner">
           <SearchBar/>
-          <div className={playListMade ? "" : "hidden"}>
+          <div className={playlistMade ? "" : "hidden"}>
             <div className="track-box">
-              <iframe className="track-playlist" src={playListIframe} width="100%" height="300" title="Your Playlist"></iframe>
+              <iframe className="track-playlist" src={playlistIframe} width="100%" height="300" title="Your Playlist"></iframe>
             </div>
           </div>
         </div>
