@@ -1,31 +1,26 @@
 import React, { useState, createContext } from 'react';
 
 export const ModalContext = createContext({
-  component: null,
-  props: {},
+  modal: true,
   showModal: () => {},
   hideModal: () => {}
 });
 
 const ModalProvider = ({ children }) => {
-  const [component, setComponent] = useState(null);
-  const [props, setProps] = useState({});
+  const [modal, setModal] = useState(false);
 
-  const showModal = (component, props) => {
-    setComponent(component);
-    setProps(props);
+  const showModal = () => {
+    setModal(true);
   }
 
   const hideModal = () => {
-    setComponent(null);
-    setProps({});
+    setModal(false);
   }
 
   return (
     <ModalContext.Provider
       value={{
-        component,
-        props,
+        modal,
         showModal,
         hideModal
       }}
