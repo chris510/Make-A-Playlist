@@ -22,7 +22,7 @@ from message_utils import (
   sendTxtMessage
 )
 
-app = Flask(__name__, static_folder='./frontend', template_folder="./frontend/build")
+app = Flask(__name__, static_folder='./frontend/build', static_url_path='')
 api = Api(app)
  
 class Playlist(Resource):
