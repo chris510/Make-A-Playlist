@@ -25,11 +25,27 @@
         font-size: 18px;
         // font-weight: 500;
       }
+
+      .icon {
+        width: 65px;
+        height: 65px;
+        padding: 5px;
+        padding-top: 10px;
+
+        &:hover {
+          cursor: pointer;
+          color: $primary-color;
+          // outline: none;
+          transform: translateY(-0.3rem);
+          // box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+        }
+
+        &:active, &:focus {
+          // outline: none;
+          transform: translateY(-0.1rem);
+        }
+      }
+
     }
   }
-}
-
-.icon {
-  width: 100px;
-  height: 100px;
 }
