@@ -34,7 +34,7 @@ const Playlist = () => {
             onClick={onClickMessage}
             icon={faComment} 
             className={playlistMade ? 'icon' : 'icon hidden'}
-            />
+          />
         </div>
         <div className="content-inner">
           <SearchBar/>
