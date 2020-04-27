@@ -1,28 +1,29 @@
 from twilio.rest import Client
 
 account_sid = 'AC6d673beb13f407a8892c1bb7538cab0e'
-auth_token = 'ba58277c52b03461d55e1f6dfc45579a'
+auth_token = '5b585b922a51d27ee45cfbc5c5ec9ba7'
 
-account_sid = 'YOUR ACCOUNT_SID HERE'
-auth_token = 'YOUR AUTH TOKEN HERE'
+# account_sid = 'YOUR ACCOUNT_SID HERE'
+# auth_token = 'YOUR AUTH TOKEN HERE'
 
 client = Client(account_sid, auth_token)
 
-def get_track_link_name(data):
+def parse_data(data):
 	playlist_name = data["playlist_name"]
 	playlist_link = data["playlist_link"]
+	phone_number = data["phone_number"]
 
-	return (playlist_name, playlist_link)
+	return (playlist_name, playlist_link, phone_number)
 
 def parse_into_message(name, link):
-  	return f'{name} - {link}'
+	return f'{name} - {link}'
 
-def sendTxtMessage(message):
+def sendTxtMessage(message, number):
 	message = client.messages \
 							.create(
 										body=message,
 										from_='+14422693966',
-										to='+15105072779'
+										to='+1' + number
 								)
 	return message
 

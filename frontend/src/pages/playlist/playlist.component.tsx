@@ -15,18 +15,13 @@ const Playlist = () => {
   const { 
     playlistIframe, 
     playlistMade, 
-    playlistLink, 
-    playlistName, 
     isLoading,
   } = useContext(TrackContext);
-  const { sendPlaylistMessage } = useContext(MessageContext);
   const { modal, showModal } = useContext(ModalContext);
 
   const onClickMessage = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('clicked!')
     showModal();
-    // sendPlaylistMessage(playlistName, playlistLink);
   }
 
   return (

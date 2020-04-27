@@ -17,7 +17,7 @@ from playlist_utils import (
 )
 
 from message_utils import (
-  get_track_link_name,
+  parse_data,
   parse_into_message,
   sendTxtMessage
 )
@@ -57,12 +57,13 @@ class Playlist(Resource):
 
 class Message(Resource):
   def post(self):
-    playlist_name, playlist_link = get_track_link_name(request.get_json())
+    playlist_name, playlist_link, phone_number = parse_data(request.get_json())
     message = parse_into_message(playlist_name, playlist_link)
 
-    sendTxtMessage(message)
+    sendTxtMessage(message, phone_number)
     return { 
-      'text_message': message
+      'text_message': message,
+      'phone_number': phone_number
     }, 200
     
 api.add_resource(Playlist, "/playlist")

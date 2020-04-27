@@ -1,15 +1,27 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const MessageContext = createContext({
+  phoneNumber: "",
+  changePhoneNumber: (number) => {},
   sendPlaylistMessage: (playlistName, playlistLink) => {}
 })
 
 const MessageProvider = ({ children }) => {
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-  const sendPlaylistMessage = async (playlistName, playlistLink) => {
+  const changePhoneNumber = (number) => {
+    setPhoneNumber(number);
+  }
+
+  const formatNumber = (number) => {
+    return number.split('-').join('');
+  }
+
+  const sendPlaylistMessage = async (playlistName, playlistLink, phoneNumber) => {
     const data = { 
       "playlist_name": playlistName,
-      "playlist_link": playlistLink
+      "playlist_link": playlistLink,
+      "phone_number": formatNumber(phoneNumber)
     };
 
     const response = await fetch("/message", {
@@ -33,6 +45,8 @@ const MessageProvider = ({ children }) => {
   return (
     <MessageContext.Provider
       value={{
+        phoneNumber,
+        changePhoneNumber,
         sendPlaylistMessage
       }}
     >
