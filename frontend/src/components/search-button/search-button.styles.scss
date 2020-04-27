@@ -10,15 +10,18 @@
   height: 90px;
   width: 90px;
   border-radius: 50%;
-  margin-top: 10px;
-  // margin-left: 15px;
+  transition: .2s ease-in;
 
   &:hover {
     cursor: pointer;
-    background: rgba(187, 41, 78, .8);
+    // background: rgba(187, 41, 78, .8);
+    outline: none;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   }
 
-  &:focus {
+  &:active, &:focus {
     outline: none;
+    transform: translateY(-0.1rem);
   }
 } 

@@ -8,9 +8,11 @@
   .header {
     display: flex;
 
-    h1 {
-      font-size: $header-font-size-secondary;
+    .title {
+      align-self: flex-end;
+      font-size: $header-font-size-tertiary;
       color: $white-primary-1;
+      margin-top: 10px;
     }
   
     .icon {
@@ -20,9 +22,22 @@
       stroke-width: 5px;
       z-index: 1000;
       margin-left: 15px;
+      transition: .2s ease-in;
+
+      &.hidden {
+        // opacity: 0;
+      }
 
       &:hover {
         cursor: pointer;
+        outline: none;
+        transform: translateY(-0.5rem);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      }
+
+      &:active, &:focus {
+        outline: none;
+        transform: translateY(-0.1rem);
       }
     }
   }
@@ -38,9 +53,14 @@
     .content-inner {
       display: flex;
       flex-direction: column;
+      transition: 0.2s ease-in;
+
+      .hidden {
+        opacity: 0;
+      }
 
       .track-box {
-        margin-top: 50px;
+        margin-top: 40px;
       }
 
       .track-playlist {

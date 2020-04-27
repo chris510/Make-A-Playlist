@@ -24,6 +24,7 @@ const TrackProvider = ({ children }) => {
       response.json().then(data => {
         console.log(data);
         setPlayListIframe(data.playlist_iframe_href);
+        setplayListMade(true);
       })
     } else {
       console.log('ERROR HAS OCCURED')

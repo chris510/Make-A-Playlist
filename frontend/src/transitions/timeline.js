@@ -6,7 +6,7 @@ const getDefaultTimeline = (node, delay) => {
   const contentInner = node.querySelector('.content-inner');
 
   timeline
-    .from(node, 0.2, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
+    .from(node, 0.025, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
     .from(content, 0.125, { autoAlpha: 0, y: 25, ease: Power1.easeInOut })
     .from(contentInner, 0.125, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
 
@@ -20,7 +20,7 @@ const getPlaylistTimeLine = (node, delay) => {
   const trackBox = node.querySelector('.track-box');
 
   timeline
-    .from(node, 0.2, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
+    .from(node,  0.025, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
     .from(content, 0.125, { autoAlpha: 0, y: 25, ease: Power1.easeInOut })
     .from(contentInner, 0.125, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn })
     .from(trackBox, 0.125, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
