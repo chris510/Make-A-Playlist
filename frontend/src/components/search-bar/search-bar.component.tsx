@@ -4,11 +4,14 @@ import './search-bar.styles.scss';
 import { TrackContext } from '../../providers/tracks.provider';
 
 const SearchBar = () => {
-  const { createPlaylistIframe } = useContext(TrackContext);
+  const { createPlaylistIframe, setLoading } = useContext(TrackContext);
   const [artistName, setArtistName] = useState('');
 
   const handleClickCreatePlaylist = (event: React.FormEvent) => {
     event.preventDefault();
+    console.log('clicked');
+    setLoading(false);
+    console.log('api call')
     createPlaylistIframe(artistName);
   }
 

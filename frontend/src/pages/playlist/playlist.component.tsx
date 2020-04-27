@@ -1,15 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './playlist.styles.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 import SearchBar from '../../components/search-bar/search-bar.component';
+import Spinner from '../../components/spinner/spinner.component';
 import { TrackContext } from '../../providers/tracks.provider';
 import { MessageContext } from '../../providers/message.provider';
 
 const Playlist = () => {
-  const { playlistIframe, playlistMade, playlistLink, playlistName } = useContext(TrackContext);
+  const { 
+    playlistIframe, 
+    playlistMade, 
+    playlistLink, 
+    playlistName, 
+    isLoading,
+  } = useContext(TrackContext);
   const { sendPlaylistMessage } = useContext(MessageContext);
 
   const onClickMessage = (event: React.FormEvent) => {
@@ -31,10 +38,15 @@ const Playlist = () => {
         </div>
         <div className="content-inner">
           <SearchBar/>
-          <div className={playlistMade ? "" : "hidden"}>
-            <div className="track-box">
-              <iframe className="track-playlist" src={playlistIframe} width="100%" height="300" title="Your Playlist"></iframe>
-            </div>
+          <div className="track-box">
+            {isLoading ? null : <Spinner/>}
+            <iframe 
+              className={playlistMade ? "track-playlist" : " track-playlist hidden"}
+              src={playlistIframe} 
+              width="100%" 
+              height="300" 
+              title="Your Playlist"
+            />
           </div>
         </div>
       </div>
