@@ -7,7 +7,7 @@ export const MessageContext = createContext({
 const MessageProvider = ({ children }) => {
 
   const sendPlaylistMessage = async (trackArtistNames) => {
-    const data = { "track_artist_names": trackArtistNames };
+    const data = { "track_artist_list": trackArtistNames };
     console.log(trackArtistNames)
     const response = await fetch("/message", {
       method: "POST",
