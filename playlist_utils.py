@@ -5,16 +5,16 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 from random import sample, shuffle
 
-SPOTIPY_CLIENT_ID = "18a0a5c51f9b44709bfb88140ccd7071"
-SPOTIPY_CLIENT_SECRET = "d1c60df39a17418088946fb8cfdb2dbc"
+SPOTIPY_CLIENT_ID = "3a4599ce29c84fa1b4b3e3e9c006dc6e"
+SPOTIPY_CLIENT_SECRET = "4b338bf340234140864efeddbc9c2329"
 SPOTIPY_REDIRECT_URI = "https://www.chris-trinh.com/"
 
-username = "1259017121"
+username = 's0rxn0lrvbtx9div9v2zun024';
 scope = "playlist-modify-public"
 
 # SPOTIPY_CLIENT_ID = "YOUR SPOTIPY_CLIENT_ID HERE"
 # SPOTIPY_CLIENT_SECRET = "YOUR SPOTIPY_CLIENT_SECRET HERE"
-# SPOTIPY_REDIRECT_URI = "YOUR SPOTIPY_REDIRECT_URI HERE"
+# SPOTIPY_REDIRECT_URI = "YOUR SPOTIPY_REDIRECT_URI HERE"t
 
 # username = 'YOUR USERNAME HERE'
 # scope = "playlist-modify-public"
@@ -44,7 +44,10 @@ def add_top_tracks_to_list(artist_uri):
   random_top_tracks = sample(artist_top_tracks["tracks"], 10)
 
   for track in random_top_tracks:
-    track_list.append(track["id"])
+    track_id = track["id"]
+    track_name = track["name"]
+    artist_name = track["artists"][0]["name"]
+    track_list.append((track_id, track_name, artist_name))
   return track_list
 
 def add_related_tracks_to_list(track_list, artist_uri):
@@ -56,7 +59,10 @@ def add_related_tracks_to_list(track_list, artist_uri):
       related_artist_top_tracks = sp.artist_top_tracks(related_artist_uri)
       related_artist_random_top_tracks = sample(related_artist_top_tracks["tracks"], 3)
       for track in related_artist_random_top_tracks:
-        track_list.append(track["id"])
+        track_id = track["id"]
+        track_name = track["name"]
+        artist_name = track["artists"][0]["name"]
+        track_list.append((track_id, track_name, artist_name))
       related_artist_count += 1
   return track_list
 
@@ -67,6 +73,18 @@ def create_playlist(artist_name):
   playlist_id = playlist["id"]
   return (playlist_name, playlist, playlist_id)
 
+def parse_tracklist_ids(track_list):
+  track_ids = []
+  for track in track_list:
+    track_ids.append(track[0])
+  return track_ids
+
+def parse_tracklist_name_artist(track_list):
+  track_artist_list = []
+  for track in track_list:
+    track_artist_list.append({ "track": track[1], "artist": track[2]})
+  return track_artist_list
+
 def add_tracks_to_playlist(playlist_id, track_list):
   sp.user_playlist_add_tracks(username, playlist_id, track_list)
 
@@ -75,5 +93,10 @@ def randomize_track_list_order(track_list):
   return sample(track_list, list_len)
 
 def create_playlist_iframe(playlist_id):
-  playlist_iframe_href = "https://open.spotify.com/embed?uri=spotify:user:" + username + ":playlist:" + playlist_id + "&theme=white"
+  playlist_iframe_href = "https://open.spotify.com/embed?uri=spotify:user:" + username + ":playlist:" + playlist_id + "&theme=black"
   return playlist_iframe_href
+
+def get_playlist_link(playlist_id):
+  playlist_data = sp.playlist(playlist_id)
+  playlist_link = playlist_data['external_urls']['spotify']
+  return playlist_link
