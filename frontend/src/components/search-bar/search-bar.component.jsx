@@ -7,7 +7,7 @@ const SearchBar = () => {
   const { createPlaylistIframe, setLoading } = useContext(TrackContext);
   const [artistName, setArtistName] = useState('');
 
-  const handleClickCreatePlaylist = (event: React.FormEvent) => {
+  const handleClickCreatePlaylist = (event) => {
     event.preventDefault();
     console.log('clicked');
     setLoading(false);
@@ -15,7 +15,7 @@ const SearchBar = () => {
     createPlaylistIframe(artistName);
   }
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (event) => {
     const { value } = event.target;
     setArtistName(value);
   }

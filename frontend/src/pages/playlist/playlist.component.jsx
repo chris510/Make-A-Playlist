@@ -18,7 +18,7 @@ const Playlist = () => {
   } = useContext(TrackContext);
   const { modal, showModal } = useContext(ModalContext);
 
-  const onClickMessage = (event: React.FormEvent) => {
+  const onClickMessage = (event) => {
     event.preventDefault();
     showModal();
   }
