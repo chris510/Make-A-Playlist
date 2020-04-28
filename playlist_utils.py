@@ -6,9 +6,9 @@ import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
 from random import sample, shuffle
 
-SPOTIPY_CLIENT_ID = os.environ.get('SPOTIPY_CLIENT_ID')
-SPOTIPY_CLIENT_SECRET = os.environ.get('SPOTIPY_CLIENT_SECRET')
-SPOTIPY_REDIRECT_URI = os.environ.get('SPOTIPY_REDIRECT_URI')
+SPOTIPY_CLIENT_ID = config.SPOTIPY_CLIENT_ID
+SPOTIPY_CLIENT_SECRET = config.SPOTIPY_CLIENT_SECRET
+SPOTIPY_REDIRECT_URI = config.SPOTIPY_REDIRECT_URI
 
 username = 's0rxn0lrvbtx9div9v2zun024';
 scope = "playlist-modify-public"
@@ -20,12 +20,11 @@ scope = "playlist-modify-public"
 # username = 'YOUR USERNAME HERE'
 # scope = "playlist-modify-public"
 
-client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+# client_credentials_manager = SpotifyClientCredentials(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
+# sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 token = util.prompt_for_user_token(username, scope, SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI)
 sp = spotipy.Spotify(auth=token)
-redirect(SPOTIPY_REDIRECT_URI);
 
 def get_desired_artist(data):
   desired_artist = data["desired_artist"]
