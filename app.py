@@ -26,8 +26,8 @@ app = Flask(__name__)
 api = Api(app)
 
 @app.route('/')
-  def index:
-    return '<h1>Welcome to my app!</h1>'
+def index():
+  return "<h1>Welcome to the API for Make a Playlist!</h1>"
  
 class Playlist(Resource):
   def post(self):
