@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, redirect
 import config
 import spotipy
 import spotipy.util as util
@@ -24,6 +24,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 token = util.prompt_for_user_token(username, scope, SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI)
 sp = spotipy.Spotify(auth=token)
+redirect(SPOTIPY_REDIRECT_URI);
 
 def get_desired_artist(data):
   desired_artist = data["desired_artist"]
