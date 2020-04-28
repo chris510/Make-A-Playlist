@@ -25,9 +25,9 @@ from message_utils import (
 app = Flask(__name__)
 api = Api(app)
 
-@app.route("/")
+@app.route('/')
 def index():
-  return "<h1>Welcome to the API for Make a Playlist!</h1>"
+  return '<h1>Welcome to the Make-A-Playlist API!'
  
 class Playlist(Resource):
   def post(self):
@@ -69,9 +69,9 @@ class Message(Resource):
       'text_message': message,
       'phone_number': phone_number
     }, 200
-
-api.add_resource(Playlist, '/playlist')
-api.add_resource(Message, '/message')
+    
+api.add_resource(Playlist, "/playlist")
+api.add_resource(Message, "/message")
 
 if __name__ == '__main__':
- app.run()
+  app.run()
