@@ -24,6 +24,10 @@ from message_utils import (
 
 app = Flask(__name__)
 api = Api(app)
+
+@app.route('/')
+  def index:
+    return '<h1>Welcome to my app!</h1>'
  
 class Playlist(Resource):
   def post(self):
