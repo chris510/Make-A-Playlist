@@ -1,13 +1,14 @@
 from flask import request, redirect
+import os
 import config
 import spotipy
 import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
 from random import sample, shuffle
 
-SPOTIPY_CLIENT_ID = "3a4599ce29c84fa1b4b3e3e9c006dc6e"
-SPOTIPY_CLIENT_SECRET = "4b338bf340234140864efeddbc9c2329"
-SPOTIPY_REDIRECT_URI = "https://rise-playlist.herokuapp.com/"
+SPOTIPY_CLIENT_ID = os.environ.get('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = os.environ.get('SPOTIPY_CLIENT_SECRET')
+SPOTIPY_REDIRECT_URI = os.environ.get('SPOTIPY_REDIRECT_URI')
 
 username = 's0rxn0lrvbtx9div9v2zun024';
 scope = "playlist-modify-public"
