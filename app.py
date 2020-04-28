@@ -83,6 +83,6 @@ class Message(Resource):
 api.add_resource(Playlist, "/playlist")
 api.add_resource(Message, "/message")
 
-app.run(port=5000, debug=True)
+app.run()
 
 
