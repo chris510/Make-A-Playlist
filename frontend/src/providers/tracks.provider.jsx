@@ -21,7 +21,7 @@ const TrackProvider = ({ children }) => {
 
   const createPlaylistIframe = async (artistName) => {
     const data = {"desired_artist": artistName}
-    const response = await fetch("/playlist", {
+    const response = await fetch("https://api-make-a-playlist.herokuapp.com/playlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -36,7 +36,7 @@ const MessageProvider = ({ children }) => {
       "phone_number": formatNumber(phoneNumber)
     };
 
-    const response = await fetch("/message", {
+    const response = await fetch("https://api-make-a-playlist.herokuapp.com/message", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

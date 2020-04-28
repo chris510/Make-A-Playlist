@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, redirect
 from flask_restful import Resource, Api
+from flask_cors import CORS
 from random import shuffle
 import config
 
@@ -24,6 +25,7 @@ from message_utils import (
 )
 
 app = Flask(__name__, )
+CORS(app)
 api = Api(app)
 
 @app.route("/") 
@@ -71,18 +73,6 @@ class Message(Resource):
       'phone_number': phone_number
     }, 200
 
-# class Auth(Resource):
-#   def get(self):
-#     response = start_auth.getUser()
-#     return redirect(response)
-
-# class Callback(Resource):
-#   def get(self):
-#     start_auth.getUserToken(request.args['code'])
-#     return redirect("https://rise-playlist.herokuapp.com/callback")
-
-# api.add_resource(Auth, "/")
-# api.add_resource(Callback, "/callback")
 api.add_resource(Playlist, "/playlist")
 api.add_resource(Message, "/message")
 
