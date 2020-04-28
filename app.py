@@ -1,6 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect
 from flask_restful import Resource, Api
 from random import shuffle
+import start_auth
+import config
 
 from playlist_utils import (
   get_desired_artist,
@@ -65,7 +67,19 @@ class Message(Resource):
       'text_message': message,
       'phone_number': phone_number
     }, 200
-    
+
+# class Auth(Resource):
+#   def get(self):
+#     response = start_auth.getUser()
+#     return redirect(response)
+
+# class Callback(Resource):
+#   def get(self):
+#     start_auth.getUserToken(request.args['code'])
+#     return redirect("https://rise-playlist.herokuapp.com/callback")
+
+# api.add_resource(Auth, "/")
+# api.add_resource(Callback, "/callback")
 api.add_resource(Playlist, "/playlist")
 api.add_resource(Message, "/message")
 
