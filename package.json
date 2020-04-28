@@ -1,0 +1,19 @@
+{
+  "name": "playlist_maker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris510/playlist_maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris510/playlist_maker/issues"
+  },
+  "homepage": "https://github.com/chris510/playlist_maker#readme"
+}
