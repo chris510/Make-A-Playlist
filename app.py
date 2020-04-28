@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, redirect
 from flask_restful import Resource, Api
 from random import shuffle
-import start_auth
 import config
 
 from playlist_utils import (
@@ -24,8 +23,12 @@ from message_utils import (
   sendTxtMessage
 )
 
-app = Flask(__name__)
+app = Flask(__name__, )
 api = Api(app)
+
+@app.route("/") 
+def home_view(): 
+  return "<h1>Welcome to Geeks for Geeks</h1>"
  
 class Playlist(Resource):
   def post(self):
