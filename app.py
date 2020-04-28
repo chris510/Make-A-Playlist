@@ -86,6 +86,7 @@ class Message(Resource):
 api.add_resource(Playlist, "/playlist")
 api.add_resource(Message, "/message")
 
-app.run()
+if __name__ == "__main__":
+  app.run()
 
 
