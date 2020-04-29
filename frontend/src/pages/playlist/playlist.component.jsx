@@ -25,15 +25,15 @@ const Playlist = () => {
 
   return (
     <div className="playlist">
-      {modal ? <PhoneInput/> : null}
+      {/* {modal ? <PhoneInput/> : null} */}
       <div className="content">
         <div className="header">
           <h1 className="title">Search Artist</h1>
-          <FontAwesomeIcon 
+          {/* <FontAwesomeIcon 
             onClick={onClickMessage}
             icon={faComment} 
             className={playlistMade ? 'icon' : 'icon hidden'}
-          />
+          /> */}
         </div>
         <div className="content-inner">
           <SearchBar/>
