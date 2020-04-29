@@ -1,9 +1,13 @@
 # Make-A-Playlist!
 Make a Spotify Playlist and send the list to your phone! Built with React, Flask, SpotifyAPI, &amp; TwilioAPI.
 
-[Live Link](https://quirky-lamport-7dffed.netlify.app/)
-[API Link](https://api-make-a-playlist.herokuapp.com/)
 See all the playlist that have been created [here!](https://open.spotify.com/user/s0rxn0lrvbtx9div9v2zun024)
+
+UI inspired by [Music Landing Page](https://dribbble.com/shots/5686734-Music-Landing-page)
+
+[Live Link](https://quirky-lamport-7dffed.netlify.app/)
+
+[API Link](https://api-make-a-playlist.herokuapp.com/)
 
 ## Technologies
 
