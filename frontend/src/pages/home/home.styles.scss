@@ -10,6 +10,14 @@
     height: 45%;
     margin-left: $content-margin-left-1;
 
+    @media screen and (max-width: 800px) {
+      padding-left: 30px;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      margin-left: 0;
+    }
+
     > * {
       padding: 2.5px;
     }
@@ -17,21 +25,37 @@
     .header-1 {
       color: $white-primary-1;
       font-size: $header-font-size-primary;
+
+      @media screen and (max-width: 800px) {
+        font-size: 42px ;
+      }
     }
   
     .header-2 {
       color: $white-primary-1;
       font-size: $header-font-size-secondary;
+
+      @media screen and (max-width: 800px) {
+        font-size: 36px;
+      }
     }
   
     .header-3 {
       color: $white-primary-1;
       font-size: $header-font-size-secondary;
+
+      @media screen and (max-width: 800px) {
+        font-size: 36px;
+      }
     }
   
     .header-4 {
       color: $white-primary-1;
       font-size: $header-font-size-secondary;
+
+      @media screen and (max-width: 800px) {
+        font-size: 36px;
+      }
     }
 
   }

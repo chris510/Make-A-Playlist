@@ -1,5 +1,9 @@
 @import './stylesheets/main.scss';
 
+#root {
+  height: 100vh; 
+}
+
 * {
   margin: 0;
   padding: 0;
