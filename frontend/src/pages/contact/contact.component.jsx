@@ -9,7 +9,7 @@ const Contact = () => {
       <div className="content">
       <h1>Feel free to reach out!</h1>
         <div className="content-inner">
-          <p>I'm love to build things and always looking for ways to improve! If you hav any ideas to make the app better, any bugs, or just want to say hello! Don't be hesitate to contact me about anything! I'm always happy to chat.</p>
+          <p>I love to build things and am always looking for ways to improve! If you have any ideas to make the app better, any bugs, or just want to say hello! Don't be hesitant to contact me about anything! I'm always happy to chat. :D</p>
           <a href="https://github.com/chris510" target="_blank">
             <FaGithubSquare className="icon"/>
           </a>
