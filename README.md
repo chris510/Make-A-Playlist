@@ -5,7 +5,7 @@ See all the playlist that have been created [here!](https://open.spotify.com/use
 
 UI inspired by [Music Landing Page](https://dribbble.com/shots/5686734-Music-Landing-page)
 
-[Live Link](https://quirky-lamport-7dffed.netlify.app/)
+[Live Link](https://make-a-playlist.netlify.app/)
 
 [API Link](https://api-make-a-playlist.herokuapp.com/)
 
